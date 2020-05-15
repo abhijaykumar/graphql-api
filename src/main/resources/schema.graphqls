@@ -1,0 +1,44 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Post {
+    id: String
+    content: String
+    likedBy: [User]
+    comments: [String]
+    createdAt: String
+    lastModified: String
+    version: Int
+}
+
+type User {
+    username: String
+    name: String
+    email: String
+}
+
+type Query {
+    post(id : String!): Post
+    allPosts : [Post]
+}
+
+type Mutation {
+    createPost(input: PostInput!) : Post
+    deletePost(id : String!) : Boolean
+    updatePost(input: PostInput!) : Post
+    likePost(postId: String!, user: UserInput!) : Post
+    addComment(postId: String!, comment: String!) : Post
+}
+
+input PostInput {
+    id: String
+    content: String
+}
+
+input UserInput {
+    username: String
+    name: String
+    email: String
+}

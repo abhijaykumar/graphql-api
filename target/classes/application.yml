@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+ data:
+  mongodb:
+   database: posts
+   host: localhost
+   port: 27017
+
+graphiql:
+ subscriptions:
+  timeout: 300000
